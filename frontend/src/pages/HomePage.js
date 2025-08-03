@@ -1,38 +1,50 @@
-import React from 'react';
-import { useAuth } from '../context/AuthContext';
+import React, { useState } from 'react';
 import Button from '../components/Button';
 import Card from '../components/Card';
+import FruitTable from '../components/FruitTable';
+import FruitForm from '../components/FruitForm';
 import './HomePage.css';
 
 function HomePage() {
-  const { user, logout } = useAuth();
+  const [fruits, setFruits] = useState([]);
+  const [currentFruit, setCurrentFruit] = useState(null);
+  const [isEditing, setIsEditing] = useState(false);
 
-  const handleLogout = () => {
-    logout();
+  const handleAdd = (newFruit) => {
+    setFruits([...fruits, newFruit]);
+  };
+
+  const handleEdit = (fruit) => {
+    setCurrentFruit(fruit);
+    setIsEditing(true);
+  };
+
+  const handleUpdate = (updatedFruit) => {
+    setFruits(fruits.map(fruit => (fruit.name === updatedFruit.name ? updatedFruit : fruit)));
+    setIsEditing(false);
+    setCurrentFruit(null);
+  };
+
+  const handleDelete = (fruit) => {
+    setFruits(fruits.filter(f => f.name !== fruit.name));
+  };
+
+  const handleCancel = () => {
+    setIsEditing(false);
+    setCurrentFruit(null);
   };
 
   return (
     <div className="home-container">
-      <div className="home-header">
-        <h1>Welcome to Your Dashboard</h1>
-        <Button variant="secondary" onClick={handleLogout}>
-          Logout
-        </Button>
-      </div>
-
-      <div className="home-content">
-        <Card title={`Hello, ${user?.name}!`}>
-          <div className="user-info">
-            <p><strong>Name:</strong> {user?.name}</p>
-            <p><strong>Email:</strong> {user?.email}</p>
-          </div>
-          
-          <div className="welcome-message">
-            <p>You have successfully logged in to your account!</p>
-            <p>This is your personal dashboard where you can manage your profile and access various features.</p>
-          </div>
-        </Card>
-      </div>
+      <h1>Fruit Management</h1>
+      <Card title="Manage Your Fruits">
+        {isEditing ? (
+          <FruitForm currentFruit={currentFruit} onSubmit={handleUpdate} onCancel={handleCancel} />
+        ) : (
+          <FruitForm onSubmit={handleAdd} onCancel={handleCancel} />
+        )}
+        <FruitTable fruits={fruits} onEdit={handleEdit} onDelete={handleDelete} />
+      </Card>
     </div>
   );
 }

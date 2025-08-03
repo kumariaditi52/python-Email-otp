@@ -1,0 +1,141 @@
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  margin: 0;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+}
+
+/* Card Styles */
+.card {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 32px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.card-title {
+  margin: 0 0 24px 0;
+  text-align: center;
+  color: #333;
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.card-content {
+  width: 100%;
+}
+
+/* Table Styles */
+.fruit-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.fruit-table th, .fruit-table td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: left;
+}
+
+.fruit-table th {
+  background-color: #f2f2f2;
+  color: #333;
+}
+
+.fruit-table img {
+  width: 50px;
+  height: 50px;
+  border-radius: 4px;
+}
+
+/* Form Styles */
+.fruit-form {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.fruit-form input {
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.fruit-form input[type="file"] {
+  padding: 0;
+}
+
+/* Button Styles */
+button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-right: 10px;
+}
+
+button.primary {
+  background-color: #4CAF50; /* Green */
+  color: white;
+}
+
+button.secondary {
+  background-color: #f44336; /* Red */
+  color: white;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+/* Icon Styles */
+.icon {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+  vertical-align: middle;
+}
+
+.add-icon {
+  background: url('/path/to/add-icon.png') no-repeat center center;
+  background-size: contain;
+}
+
+.edit-icon {
+  background: url('/path/to/edit-icon.png') no-repeat center center;
+  background-size: contain;
+}
+
+.delete-icon {
+  background: url('/path/to/delete-icon.png') no-repeat center center;
+  background-size: contain;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .fruit-table {
+    font-size: 14px;
+  }
+
+  .fruit-form input {
+    font-size: 14px;
+  }
+
+  button {
+    font-size: 14px;
+  }
+}

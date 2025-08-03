@@ -1,0 +1,12 @@
+.fruit-form {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.fruit-form input {
+  margin-bottom: 10px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}

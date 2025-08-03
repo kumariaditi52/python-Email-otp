@@ -1,0 +1,13 @@
+.fruit-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.fruit-table th, .fruit-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.fruit-table th {
+  background-color: #f2f2f2;
+}
